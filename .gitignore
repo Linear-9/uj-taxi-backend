@@ -2,3 +2,4 @@ db/taxi.db
 db/taxi.db-shm
 db/taxi.db-wal
 node_modules/
+node_modules/
