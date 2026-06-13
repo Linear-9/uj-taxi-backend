@@ -24,6 +24,20 @@ function autoSeed() {
 }
 autoSeed();
 
+app.get('/api/admin/reseed', (req, res) => {
+  if (req.query.key !== '223104314@student.uj.ac.za') {
+    return res.status(403).json({ success: false, error: 'Forbidden' });
+  }
+  try {
+    db.exec('DELETE FROM hand_signals; DELETE FROM routes; DELETE FROM pickup_points; DELETE FROM campuses;');
+    delete require.cache[require.resolve('./db/seed.js')];
+    require('./db/seed.js');
+    res.json({ success: true, message: 'Reseeded successfully' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 const GOOGLE_API_KEY = 'AIzaSyCOL7d4HI_bghnRVCpYxxYS1jNApA3et_o';
 
 // ─── CAMPUSES ────────────────────────────────────────────────────────────────
