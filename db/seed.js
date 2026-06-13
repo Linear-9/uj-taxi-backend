@@ -90,7 +90,7 @@ insertRoute.run(1, 1, 3, 'APK→DFC',
 );
 
 insertRoute.run(2, 3, 1, 'DFC→APK',
-  'Point index finger left and wave slowly',
+  'One finger pointed upward',
   40, 32.00,
   'Board from Siemert Road heading west toward the CBD. At Bree Rank, transfer to an Auckland Park / Kingsway taxi.',
   'Bree Taxi Rank', -26.204722, 28.040278,
@@ -98,7 +98,7 @@ insertRoute.run(2, 3, 1, 'DFC→APK',
 );
 
 insertRoute.run(3, 1, 2, 'APK→APB',
-  'Open palm facing outward, wave downward',
+  'One finger pointed upward OR Open palm facing outward  ',
   10, 15.00,
   'Short trip along Bunting Rd corridor. No rank transfer needed.',
   null, null, null, null
@@ -112,7 +112,7 @@ insertRoute.run(4, 2, 1, 'APB→APK',
 );
 
 insertRoute.run(5, 2, 3, 'APB→DFC',
-  'Two fingers pointing to the right',
+  'One finger pointed upward OR Open palm facing outward ',
   35, 32.00,
   'Via Auckland Park toward the CBD. Transfer at Bree if needed.',
   'Bree Taxi Rank', -26.204722, 28.040278,
@@ -120,7 +120,7 @@ insertRoute.run(5, 2, 3, 'APB→DFC',
 );
 
 insertRoute.run(6, 3, 2, 'DFC→APB',
-  'Thumb pointing left',
+  'One finger pointed upward ',
   35, 32.00,
   'Board Siemert Rd heading west.',
   null, null, null, null
@@ -159,9 +159,9 @@ const insertSignal = db.prepare(`
   INSERT OR IGNORE INTO hand_signals (id, destination, description, gesture)
   VALUES (?, ?, ?, ?)
 `);
-insertSignal.run(1, 'Doornfontein / CBD',  'Heading east toward Joburg CBD / Doornfontein', 'Two fingers pointed downward');
-insertSignal.run(2, 'Auckland Park',        'Heading west toward Auckland Park',              'Index finger wave to the left');
+insertSignal.run(1, 'Doornfontein / CBD',  'Heading east toward Joburg CBD / Doornfontein', 'One finger pointed upward');
+insertSignal.run(2, 'Auckland Park',        'Heading west toward Auckland Park',              'One finger pointed upward');
 insertSignal.run(3, 'Soweto',               'Heading southwest toward Soweto',                'Three fingers raised upward');
-insertSignal.run(4, 'Bunting Road / APB',   'Short route along Bunting corridor',             'Open palm waved downward');
+insertSignal.run(4, 'Bunting Road / APB',   'Short route along Bunting corridor',             'One finger pointed upward OR Open palm facing outward');
 
 console.log('✅ Database seeded successfully!');
