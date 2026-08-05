@@ -75,6 +75,9 @@ insertPickup.run(6, 3, 'DFC Nugget Street',     'Nugget Street, 100m north of ca
 insertPickup.run(7, 4, 'Soweto Main Entrance',  'Chris Hani Road main gate, Pimville',        -26.259528, 27.923972);
 insertPickup.run(8, 4, 'Soweto Chris Hani Rd',  'Chris Hani Rd, 200m west of campus gate',   -26.259800, 27.921500);
 
+// APK→SWC route: Kingsway Ave pickup (taxi parked waiting)
+insertPickup.run(9, 1, 'Kingsway Ave Pickup', 'Kingsway Ave — taxi parked waiting, no hand signal needed', -26.182819, 28.001984);
+
 const insertRoute = db.prepare(`
   INSERT OR IGNORE INTO routes
     (id, from_campus_id, to_campus_id, taxi_identifier, hand_signal, estimated_minutes, fare_rands, notes, waypoint_name, waypoint_lat, waypoint_lng, waypoint_instruction)
@@ -85,7 +88,7 @@ insertRoute.run(1, 1, 3, 'APK→DFC',
   'One finger pointed upward',
   40, 32.00,
   'Walk to Campus Square pickup. Board taxi to Bree Taxi Rank. Transfer to East Gate taxi to DFC.',
-  'Bree Taxi Rank', -26.204722, 28.040278,
+  'Bree Taxi Rank', -26.200836, 28.036070,
   'Ask anyone in the rank for a taxi going to East Gate. Tell the driver you are going to UJ Doornfontein.'
 );
 
@@ -93,7 +96,7 @@ insertRoute.run(2, 3, 1, 'DFC→APK',
   'One finger pointed upward',
   40, 32.00,
   'Board from Siemert Road heading west toward the CBD. At Bree Rank, transfer to an Auckland Park / Kingsway taxi.',
-  'Bree Taxi Rank', -26.204722, 28.040278,
+  'Bree Taxi Rank', -26.200836, 28.036070,
   'You are at Bree Taxi Rank. Board a taxi heading to Auckland Park / Kingsway (APK).'
 );
 
@@ -115,7 +118,7 @@ insertRoute.run(5, 2, 3, 'APB→DFC',
   'One finger pointed upward OR Open palm facing outward ',
   35, 32.00,
   'Via Auckland Park toward the CBD. Transfer at Bree if needed.',
-  'Bree Taxi Rank', -26.204722, 28.040278,
+  'Bree Taxi Rank', -26.200836, 28.036070,
   'Transfer at Bree Taxi Rank to a Doornfontein taxi.'
 );
 
@@ -126,18 +129,24 @@ insertRoute.run(6, 3, 2, 'DFC→APB',
   null, null, null, null
 );
 
+// APK→SWC: 2 taxis, exchange at Dube
+// Stored waypoint = Dube drop-off (first exchange point)
 insertRoute.run(7, 1, 4, 'APK→SWC',
-  'Three fingers raised upward',
-  55, 20.00,
-  'Via N1/N14 toward Soweto — confirm destination with driver.',
-  null, null, null, null
+  'No hand signal needed',
+  55, 35.00,
+  'Walk to Kingsway Ave pickup. Board parked taxi to Dube. At Dube transfer to Bara Mall taxi, then walk to campus.',
+  'Dube Drop-off', -26.236873, 27.901563,
+  'You have arrived at Dube. Board a taxi heading to Bara Mall. Use the hand signal for Bara Mall.'
 );
 
+// SWC→APK: 3 taxis, exchanges at Bara and Bree
+// Stored waypoint = Bara Taxi Rank (first exchange point)
 insertRoute.run(8, 4, 1, 'SWC→APK',
-  'Wave two fingers toward yourself',
-  55, 20.00,
-  'Board at Chris Hani Rd rank.',
-  null, null, null, null
+  'One finger pointed upward',
+  65, 51.00,
+  'Walk to SWC pickup and signal for Bara Taxi Rank. At Bara transfer to Bree taxi. At Bree transfer to Campus Square taxi.',
+  'Bara Taxi Rank', -26.259238, 27.942592,
+  'You are at Bara Taxi Rank. Ask marshals for a taxi going to Bree Taxi Rank. Fare is R19.'
 );
 
 insertRoute.run(9, 3, 4, 'DFC→SWC',
