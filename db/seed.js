@@ -60,7 +60,7 @@ const insertPickup = db.prepare(`
 `);
 
 // APK — pickup near Capital Square (Kingsway Ave, heading east toward CBD)
-insertPickup.run(1, 1, 'Campus Square Pickup', 'Kingsway Ave at Campus Square — stand on the east side of the road', -26.182800, 28.004500);
+insertPickup.run(1, 1, 'Campus Square Pickup', 'Kingsway Ave at Campus Square — stand on the east side of the road', -26.182568, 28.002632);
 insertPickup.run(2, 1, 'APK Main Gate Stop',    'Corner Kingsway and University Road, main gate entrance',             -26.181917, 27.998306);
 
 // APB
