@@ -49,7 +49,7 @@ const insertCampus = db.prepare(`
   VALUES (?, ?, ?, ?, ?)
 `);
 
-insertCampus.run(1, 'Auckland Park Kingsway', 'APK', -26.181917, 27.998306);
+insertCampus.run(1, 'Auckland Park Kingsway', 'APK', -26.182516, 27.999075);
 insertCampus.run(2, 'Auckland Park Bunting',  'APB', -26.190417, 28.019306);
 insertCampus.run(3, 'Doornfontein Campus',    'DFC', -26.192389, 28.058028);
 insertCampus.run(4, 'Soweto Campus',          'SWC', -26.259528, 27.923972);
@@ -61,7 +61,7 @@ const insertPickup = db.prepare(`
 
 // APK — pickup near Capital Square (Kingsway Ave, heading east toward CBD)
 insertPickup.run(1, 1, 'Campus Square Pickup', 'Kingsway Ave at Campus Square — stand on the east side of the road', -26.182568, 28.002632);
-insertPickup.run(2, 1, 'APK Main Gate Stop',    'Corner Kingsway and University Road, main gate entrance',             -26.181917, 27.998306);
+insertPickup.run(2, 1, 'APK Main Gate Stop',    'Corner Kingsway and University Road, main gate entrance',             -26.182516, 27.999075);
 
 // APB
 insertPickup.run(3, 2, 'APB Bunting Road',      'Main entrance on Bunting Road, Cottesloe',   -26.190417, 28.019306);
